@@ -1,0 +1,10 @@
+[Unit]
+Description=Redis
+After=network.target
+
+[Service]
+ExecStart=/data/application/redis/src/redis-server /data/application/redis/redis.conf  --daemonize no
+ExecStop=/data/application/redis/src/redis-cli -h 127.0.0.1 -p 6379 shutdown
+
+[Install]
+WantedBy=multi-user.target
